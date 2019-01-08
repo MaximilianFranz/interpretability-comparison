@@ -17,7 +17,7 @@ train, test, labels_train, labels_test = sklearn.model_selection.train_test_spli
 rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
 rf.fit(train, labels_train)
 
-INST = 0
+INST = 10
 
 prediction, bias, contributions = ti.predict(rf, test[INST].reshape(1,-1))
 contributions = contributions[0]
@@ -27,9 +27,14 @@ num_class = rf.predict(test[INST].reshape(1,-1))
 print(num_class)
 print(contributions)
 
+print('bias', bias[0][num_class])
+sum = bias[0][num_class]
 # Analyse feature contribution for class 0 - setosa
 for c, feature in sorted(zip(contributions[:, num_class], 
                                  iris.feature_names), 
                              key=lambda x: -abs(x[0])):
         print (feature, c)
+        sum += c
+
+print('sum / prediction', sum)
 
