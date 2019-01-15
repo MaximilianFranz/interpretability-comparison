@@ -6,16 +6,19 @@ import sklearn
 import sklearn.ensemble
 import sklearn.metrics
 
+from sklearn.metrics import mean_squared_error
 from lime.lime_tabular import LimeTabularExplainer
 from lime import submodular_pick
 from load_bike_data import load_bike
 
 X, Y, names = load_bike()
 
-train, test, labels_train, labels_test = sklearn.model_selection.train_test_split(X, Y, train_size=0.80)
+train, test, labels_train, labels_test = sklearn.model_selection.train_test_split(X, Y, train_size=0.80, random_state=42)
 
 rf = sklearn.ensemble.RandomForestRegressor(n_estimators=500)
 rf.fit(train, labels_train)
+
+print('MSE: ', mean_squared_error(labels_test, rf.predict(test)))
 
 explainer = lime.lime_tabular.LimeTabularExplainer(train, feature_names=names, class_names=['bike_count'], discretize_continuous=True, mode='regression')
 

@@ -35800,25 +35800,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divPDD3KGFMWFCZJD9"></div>
+        <div class="lime top_div" id="top_divHXIKDPQW8QOKLD5"></div>
         
         <script>
-        var top_div = d3.select('#top_divPDD3KGFMWFCZJD9').classed('lime top_div', true);
+        var top_div = d3.select('#top_divHXIKDPQW8QOKLD5').classed('lime top_div', true);
         
         
                     var pp_div = top_div.append('div')
                                         .classed('lime predicted_value', true);
                     var pp_svg = pp_div.append('svg').style('width', '100%');
-                    var pp = new lime.PredictedValue(pp_svg, 5445.428, 1290.84, 8004.204);
+                    var pp = new lime.PredictedValue(pp_svg, 5186.078, 934.434, 7776.356);
                     
         var exp_div;
             var exp = new lime.Explanation(["negative", "positive"]);
         
             exp_div = top_div.append('div').classed('lime explanation', true);
-            exp.show([["temp > 0.65", 1481.0682846774312], ["windspeed <= 0.13", 275.48473093105304], ["weekday <= 1.00", -178.49665912804323], ["2.00 < season <= 3.00", -177.70480636437534]], 1, exp_div);
+            exp.show([["season > 3.00", 375.19247922943697], ["0.34 < temp <= 0.51", -323.8203155016572], ["0.63 < hum <= 0.73", -192.74980319529723], ["weathersit <= 1.00", 82.96527308860308]], 1, exp_div);
             
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["temp", "0.68", 1481.0682846774312], ["windspeed", "0.11", 275.48473093105304], ["weekday", "1.00", -178.49665912804323], ["season", "3.00", -177.70480636437534]], 1, raw_div);
+            exp.show_raw_tabular([["season", "4.00", 375.19247922943697], ["temp", "0.48", -323.8203155016572], ["hum", "0.73", -192.74980319529723], ["weathersit", "1.00", 82.96527308860308]], 1, raw_div);
         
         </script>
         </body></html>
