@@ -35800,31 +35800,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divL854W2TLIMTMNZM"></div>
+        <div class="lime top_div" id="top_divHXIKDPQW8QOKLD5"></div>
         
         <script>
-        var top_div = d3.select('#top_divL854W2TLIMTMNZM').classed('lime top_div', true);
+        var top_div = d3.select('#top_divHXIKDPQW8QOKLD5').classed('lime top_div', true);
         
-            var pp_div = top_div.append('div')
-                                .classed('lime predict_proba', true);
-            var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.0, 0.082, 0.918]);
-            
         
+                    var pp_div = top_div.append('div')
+                                        .classed('lime predicted_value', true);
+                    var pp_svg = pp_div.append('svg').style('width', '100%');
+                    var pp = new lime.PredictedValue(pp_svg, 5186.078, 934.434, 7776.356);
+                    
         var exp_div;
-            var exp = new lime.Explanation(["setosa", "versicolor", "virginica"]);
+            var exp = new lime.Explanation(["negative", "positive"]);
         
-                exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["petal width (cm) > 1.80", 0.36718364295374556], ["4.30 < petal length (cm) <= 5.10", 0.03063069000721227], ["sepal width (cm) <= 2.80", 0.021126253586518182], ["5.80 < sepal length (cm) <= 6.40", -0.00837032692094764]], 2, exp_div);
-                
-                exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["4.30 < petal length (cm) <= 5.10", 0.17731694506414813], ["petal width (cm) > 1.80", -0.14845976759658813], ["sepal width (cm) <= 2.80", -0.01453996856452157], ["5.80 < sepal length (cm) <= 6.40", 0.011428431385234672]], 1, exp_div);
-                
-                exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["petal width (cm) > 1.80", -0.2187238753571574], ["4.30 < petal length (cm) <= 5.10", -0.20794763507136033], ["sepal width (cm) <= 2.80", -0.00658628502199662], ["5.80 < sepal length (cm) <= 6.40", -0.0030581044642870505]], 0, exp_div);
-                
+            exp_div = top_div.append('div').classed('lime explanation', true);
+            exp.show([["season > 3.00", 375.19247922943697], ["0.34 < temp <= 0.51", -323.8203155016572], ["0.63 < hum <= 0.73", -192.74980319529723], ["weathersit <= 1.00", 82.96527308860308]], 1, exp_div);
+            
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["petal width (cm)", "1.90", 0.36718364295374556], ["petal length (cm)", "5.00", 0.03063069000721227], ["sepal width (cm)", "2.50", 0.021126253586518182], ["sepal length (cm)", "6.30", -0.00837032692094764]], 2, raw_div);
+            exp.show_raw_tabular([["season", "4.00", 375.19247922943697], ["temp", "0.48", -323.8203155016572], ["hum", "0.73", -192.74980319529723], ["weathersit", "1.00", 82.96527308860308]], 1, raw_div);
         
         </script>
         </body></html>

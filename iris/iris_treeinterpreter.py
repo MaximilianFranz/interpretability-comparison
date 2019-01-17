@@ -29,9 +29,11 @@ print(contributions)
 
 print('bias', bias[0][num_class])
 sum = bias[0][num_class]
+print('features: ', test[INST])
+print('feature_names: ', iris.feature_names)
 # Analyse feature contribution for class 0 - setosa
-for c, feature in sorted(zip(contributions[:, num_class], 
-                                 iris.feature_names), 
+for c, feature in sorted(zip(contributions[:, num_class],
+                                 iris.feature_names),
                              key=lambda x: -abs(x[0])):
         print (feature, c)
         sum += c

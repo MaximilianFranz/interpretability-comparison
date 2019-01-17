@@ -19,9 +19,13 @@ rf.fit(train, labels_train)
 
 explainer = lime.lime_tabular.LimeTabularExplainer(train, feature_names=iris.feature_names, class_names=iris.target_names, discretize_continuous=True)
 
-exp = explainer.explain_instance(test[20], rf.predict_proba, num_features=2, top_labels=1)
+exp = explainer.explain_instance(test[0], rf.predict_proba, num_features=4, top_labels=3)
 
 figure = exp.as_html()
+fig = exp.as_pyplot_figure()
+fig.tight_layout()
+fig.savefig('export/single.pdf', format='pdf')
+
 
 f = open('export/single.html','w')
 f.write(figure)
@@ -31,6 +35,7 @@ sp = submodular_pick.SubmodularPick(explainer, train, rf.predict_proba, sample_s
 
 i = 0
 for exp in sp.sp_explanations:
+    print('instance: ', exp.predict_proba)
     figure = exp.as_pyplot_figure()
     figure.tight_layout()
     figure.savefig('export/multi{}.pdf'.format(i), format='pdf')
